@@ -127,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      <a href="javascript:void(0)">Terminar a sessão</a>
+      <a href="./Controlo/logout.php">Terminar a sessão</a>
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2022 <a href="javascript:void(0)">ISAF::IGF - GRUPO 3</a>.</strong> All rights reserved.
