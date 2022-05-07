@@ -1,24 +1,29 @@
 <?php 
-$page = $_GET['page'] ?? 'dashboard';
-$page_include = "";
-$title = "";
-switch(strtolower($page)) {
-  case 'slots':
-    $title = "Espaços no Parque";
-    $page_include = "components/slots.php";
-    break;
-  case 'admin.users':
-    $title = "Gestão de Utilizadores";
-    $page_include = "admin.components/users.php";
-    break;
-  case 'admin.slots':
-    $title = "Gestão de Espaços";
-    $page_include = "admin.components/slots.php";
-    break;
-  default:
-    $title = "Dashboard";
-    $page_include = "components/dashboard.php";
-    break;
+session_start();
+if(!isset($_SESSION['usuario'])) {
+  header('location: login.php');
+} else {
+  $page = $_GET['page'] ?? 'dashboard';
+  $page_include = "";
+  $title = "";
+  switch(strtolower($page)) {
+    case 'slots':
+      $title = "Espaços no Parque";
+      $page_include = "Visao/components/slots.php";
+      break;
+    case 'Visao/admin.users':
+      $title = "Gestão de Utilizadores";
+      $page_include = "Visao/admin.components/users.php";
+      break;
+    case 'admin.slots':
+      $title = "Gestão de Espaços";
+      $page_include = "Visao/admin.components/slots.php";
+      break;
+    default:
+      $title = "Dashboard";
+      $page_include = "Visao/components/dashboard.php";
+      break;
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -81,7 +86,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="#" class="d-block">Nome do Utilizador</a>
         </div>
       </div>
-      <?php include('commons.components/menu.php'); ?>
+      <?php include('Visao/commons.components/menu.php'); ?>
     </div>
     <!-- /.sidebar -->
   </aside>
