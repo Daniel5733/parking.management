@@ -11,9 +11,17 @@ if(!isset($_SESSION['usuario'])) {
       $title = "Espaços no Parque";
       $page_include = "Visao/components/slots.php";
       break;
-    case 'Visao/admin.users':
+    case 'admin.usuarios':
       $title = "Gestão de Utilizadores";
-      $page_include = "Visao/admin.components/users.php";
+      $page_include = "Visao/admin.components/usuarios.php";
+      break;
+    case 'admin.usuario.novo':
+      $title = "Novo Utilizador";
+      $page_include = "Visao/admin.components/novo_usuario.php";
+      break;
+    case 'admin.usuario.editar':
+      $title = "Editar Utilizador";
+      $page_include = "Visao/admin.components/editar_usuario.php";
       break;
     case 'admin.slots':
       $title = "Gestão de Espaços";
@@ -43,6 +51,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/css/adminlte.min.css">
+
+  <!-- REQUIRED SCRIPTS -->
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="assets/js/adminlte.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -135,13 +152,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="assets/js/adminlte.min.js"></script>
 </body>
 </html>

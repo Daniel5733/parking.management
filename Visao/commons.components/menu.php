@@ -27,7 +27,7 @@
     </a>
     <ul class="nav nav-treeview" style="display: none;">
         <li class="nav-item">
-        <a href="?page=admin.users" class="nav-link">
+        <a href="?page=admin.usuarios" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Utilizadores</p>
         </a>
