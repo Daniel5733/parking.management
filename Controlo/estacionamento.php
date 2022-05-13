@@ -1,17 +1,17 @@
 <?php 
-include_once('../Modelo/usuario.php');
+include_once('../Modelo/estacionamento.php');
 $metodo = $_GET['metodo'];
 switch(strtolower($metodo)) {
     case 'gravar':
-        gravarUsuario($_POST);
+        gravarEstacionamento($_POST);
       break;
     case 'editar':
         $id = $_GET['id'];
-        editarUsuario($id, $_POST);
+        editarEstacionamento($id, $_POST);
         break;
     case 'eliminar':
         $id = $_GET['id'];
-        eliminarUsuario($id);
+        eliminarEstacionamento($id);
         break;
     default:
       // Error Page

@@ -1,17 +1,17 @@
 <?php 
-include_once('../Modelo/usuario.php');
+include_once('../Modelo/marca.php');
 $metodo = $_GET['metodo'];
 switch(strtolower($metodo)) {
     case 'gravar':
-        gravarUsuario($_POST);
+        gravarMarca($_POST);
       break;
     case 'editar':
         $id = $_GET['id'];
-        editarUsuario($id, $_POST);
+        editarMarca($id, $_POST);
         break;
     case 'eliminar':
         $id = $_GET['id'];
-        eliminarUsuario($id);
+        eliminarMarca($id);
         break;
     default:
       // Error Page

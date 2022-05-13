@@ -11,6 +11,7 @@ if(!isset($_SESSION['usuario'])) {
       $title = "Espaços no Parque";
       $page_include = "Visao/components/slots.php";
       break;
+    // Admin
     case 'admin.usuarios':
       $title = "Gestão de Utilizadores";
       $page_include = "Visao/admin.components/usuarios.php";
@@ -23,9 +24,41 @@ if(!isset($_SESSION['usuario'])) {
       $title = "Editar Utilizador";
       $page_include = "Visao/admin.components/editar_usuario.php";
       break;
-    case 'admin.slots':
-      $title = "Gestão de Espaços";
-      $page_include = "Visao/admin.components/slots.php";
+    case 'admin.marcas':
+      $title = "Gestão de Marcas";
+      $page_include = "Visao/admin.components/marca.php";
+      break;
+    case 'admin.marca.novo':
+      $title = "Nova Marca";
+      $page_include = "Visao/admin.components/nova_marca.php";
+      break;
+    case 'admin.marca.editar':
+      $title = "Editar Marca";
+      $page_include = "Visao/admin.components/editar_marca.php";
+      break;
+    case 'admin.modelos':
+      $title = "Gestão de Marcas";
+      $page_include = "Visao/admin.components/modelo.php";
+      break;
+    case 'admin.modelo.novo':
+      $title = "Novo Modelo";
+      $page_include = "Visao/admin.components/novo_modelo.php";
+      break;
+    case 'admin.modelo.editar':
+      $title = "Editar Modelo";
+      $page_include = "Visao/admin.components/editar_modelo.php";
+      break;
+    case 'admin.estacionamentos':
+      $title = "Gestão de Estacionamentos";
+      $page_include = "Visao/admin.components/estacionamento.php";
+      break;
+    case 'admin.estacionamento.novo':
+      $title = "Novo Estacionamento";
+      $page_include = "Visao/admin.components/novo_estacionamento.php";
+      break;
+    case 'admin.estacionamento.editar':
+      $title = "Editar Estacionamento";
+      $page_include = "Visao/admin.components/editar_estacionamento.php";
       break;
     default:
       $title = "Dashboard";
@@ -49,11 +82,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">  
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/css/adminlte.min.css">
-
   <!-- REQUIRED SCRIPTS -->
-
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->

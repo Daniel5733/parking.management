@@ -5,7 +5,7 @@
          p.id,
          p.nome
      FROM 
-         perfil p
+         marca p
      ORDER BY
          p.nome ASC
      ";
@@ -18,7 +18,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="./Controlo/usuario.php?metodo=gravar" method="POST" enctype="multipart/form-data">
+            <form action="./Controlo/modelo.php?metodo=gravar" method="POST" enctype="multipart/form-data">
             <div class="card-body">
 
                 <?php if(isset($_GET['error']) && $_GET['error']==1) {?>
@@ -29,17 +29,17 @@
 
                 <?php if(isset($_GET['error']) && $_GET['error']==2) {?>
                 <div class="alert alert-danger" role="alert">
-                Ocorreu um erro ao criar o usuario
+                Ocorreu um erro ao criar o modelo
                 </div>
                 <?php } ?>
 
                 <div class="form-group">
-                <label>Perfil</label>
-                <select required class="form-control" name="id_perfil">
+                <label>Marca</label>
+                <select required class="form-control" name="id_marca">
                     <?php 
-                     while($perfil = mysqli_fetch_array($query)) {
+                     while($marca = mysqli_fetch_array($query)) {
                     ?>
-                    <option value="<?php echo $perfil['id']; ?>"><?php echo $perfil['nome']; ?></option>
+                    <option value="<?php echo $marca['id']; ?>"><?php echo $marca['nome']; ?></option>
                     <?php
                     }
                     ?>
@@ -49,19 +49,11 @@
                 <label>Nome</label>
                 <input type="text" required class="form-control" name="nome" placeholder="Introduza o Nome">
                 </div>
-                <div class="form-group">
-                <label>Email</label>
-                <input type="email" required class="form-control" name="email" placeholder="Introduza o Email">
-                </div>
-                <div class="form-group">
-                <label>Senha</label>
-                <input type="password" required class="form-control" name="senha" placeholder="Introduza a Senha">
-                </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer text-right">
-                <button type="button" onclick="javascript:location='./?page=admin.usuarios'" class="btn btn-danger">Cancelar</button>
+                <button type="button" onclick="javascript:location='./?page=admin.modelos'" class="btn btn-danger">Cancelar</button>
                 <button type="submit" class="btn btn-primary">Gravar</button>
             </div>
         </form>

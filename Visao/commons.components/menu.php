@@ -9,6 +9,7 @@
         </p>
     </a>
     </li>
+    
     <li class="nav-item">
     <a href="?page=slots" class="nav-link">
         <i class="nav-icon fas fa-th"></i>
@@ -17,59 +18,54 @@
         </p>
     </a>
     </li>
+    <?php if($_SESSION['usuario']['id_perfil']==1) {?>
     <li class="nav-item">
     <a href="#" class="nav-link">
         <i class="nav-icon fas fa-chart-pie"></i>
         <p>
         Gestão
-        <i class="right fas fa-angle-left"></i>
         </p>
     </a>
-    <ul class="nav nav-treeview" style="display: none;">
+    <ul class="nav nav-treeview" style="display: block;">
         <li class="nav-item">
         <a href="?page=admin.usuarios" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
+            <i class="fas fa-angle-right nav-icon"></i>
             <p>Utilizadores</p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="?page=admin.slots" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Espaços</p>
+        <a href="?page=admin.estacionamentos" class="nav-link">
+            <i class="fas fa-angle-right nav-icon"></i>
+            <p>Estacionamentos</p>
         </a>
         </li>
         <li class="nav-item">
         <a href="?page=admin.prices" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
+            <i class="fas fa-angle-right nav-icon"></i>
             <p>Tabela de Preços</p>
         </a>
         </li>
         <li class="nav-item">
         <a href="?page=admin.promotions" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
+            <i class="fas fa-angle-right nav-icon"></i>
             <p>Tabela de Descontos</p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="?page=admin.customers" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Clientes</p>
-        </a>
-        </li>
-        <li class="nav-item">
-        <a href="?page=admin.cars.brands" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
+        <a href="?page=admin.marcas" class="nav-link">
+            <i class="fas fa-angle-right nav-icon"></i>
             <p>Marcas</p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="?page=admin.cars.models" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
+        <a href="?page=admin.modelos" class="nav-link">
+            <i class="fas fa-angle-right nav-icon"></i>
             <p>Modelos</p>
         </a>
         </li>
     </ul>
     </li>
+<?php } ?>
 </ul>
 </nav>
 <!-- /.sidebar-menu -->

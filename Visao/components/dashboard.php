@@ -30,7 +30,7 @@
         <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
 
         <div class="info-box-content">
-        <span class="info-box-text">Nº de Entradas</span>
+        <span class="info-box-text">Nº de Espaços Oucupados</span>
         <span class="info-box-number">1648</span>
         </div>
         <!-- /.info-box-content -->
