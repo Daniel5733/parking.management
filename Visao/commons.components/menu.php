@@ -40,15 +40,15 @@
         </a>
         </li>
         <li class="nav-item">
-        <a href="?page=admin.prices" class="nav-link">
+        <a href="?page=admin.preco" class="nav-link">
             <i class="fas fa-angle-right nav-icon"></i>
             <p>Tabela de Preços</p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="?page=admin.promotions" class="nav-link">
+        <a href="?page=admin.promocao" class="nav-link">
             <i class="fas fa-angle-right nav-icon"></i>
-            <p>Tabela de Descontos</p>
+            <p>Promoções</p>
         </a>
         </li>
         <li class="nav-item">

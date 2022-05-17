@@ -131,11 +131,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `gest_parque`.`promocao` ;
 
 CREATE TABLE IF NOT EXISTS `gest_parque`.`promocao` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(255) NOT NULL,
   `valor` DECIMAL(3,2) NOT NULL,
-  `data_inicio` DATETIME NOT NULL,
-  `data_fim` DATETIME NOT NULL,
+  `data_inicio` Date NOT NULL,
+  `data_fim` Date NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -146,7 +146,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `gest_parque`.`ticket` ;
 
 CREATE TABLE IF NOT EXISTS `gest_parque`.`ticket` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `id_estacionamento` INT NOT NULL,
   `id_veiculo` INT NOT NULL,
   `data_entrada` DATETIME NOT NULL,
@@ -204,8 +204,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `gest_parque`;
-INSERT INTO `gest_parque`.`perfil` (`id`, `nome`) VALUES (1, 'supervisor');
-INSERT INTO `gest_parque`.`perfil` (`id`, `nome`) VALUES (2, 'atendente');
+INSERT INTO `gest_parque`.`perfil` (`id`, `nome`) VALUES (1, 'Administrador');
+INSERT INTO `gest_parque`.`perfil` (`id`, `nome`) VALUES (2, 'Funcionario');
 
 COMMIT;
 

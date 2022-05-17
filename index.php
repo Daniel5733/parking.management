@@ -60,6 +60,30 @@ if(!isset($_SESSION['usuario'])) {
       $title = "Editar Estacionamento";
       $page_include = "Visao/admin.components/editar_estacionamento.php";
       break;
+    case 'admin.promocao':
+      $title = "Gestão de Promoções";
+      $page_include = "Visao/admin.components/promocao.php";
+      break;
+    case 'admin.promocao.novo':
+      $title = "Novo Promoção";
+      $page_include = "Visao/admin.components/novo_promocao.php";
+      break;
+    case 'admin.promocao.editar':
+      $title = "Editar Promoção";
+      $page_include = "Visao/admin.components/editar_promocao.php";
+      break;
+    case 'admin.preco':
+      $title = "Gestão de Preços";
+      $page_include = "Visao/admin.components/preco.php";
+      break;
+    case 'admin.preco.novo':
+      $title = "Novo Preço";
+      $page_include = "Visao/admin.components/novo_preco.php";
+      break;
+    case 'admin.preco.editar':
+      $title = "Editar Preço";
+      $page_include = "Visao/admin.components/editar_preco.php";
+      break;
     default:
       $title = "Dashboard";
       $page_include = "Visao/components/dashboard.php";
@@ -83,6 +107,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">  
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/css/adminlte.min.css">
   <!-- REQUIRED SCRIPTS -->
@@ -90,7 +115,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- AdminLTE App -->
+   <!-- AdminLTE App -->
   <script src="assets/js/adminlte.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -132,7 +157,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nome do Utilizador</a>
+          <a href="#" class="d-block"><?php echo $_SESSION['usuario']['nome'];?></a>
         </div>
       </div>
       <?php include('Visao/commons.components/menu.php'); ?>
@@ -184,5 +209,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 
+  <!-- InputMask -->
+  <script src="plugins/moment/moment.min.js"></script>
+  <script src="plugins/inputmask/jquery.inputmask.min.js"></script>
+<script>
+
+$(document).ready( function () {
+    $('[data-mask]').inputmask();
+});
+</script>
 </body>
 </html>
