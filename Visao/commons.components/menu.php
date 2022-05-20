@@ -11,7 +11,15 @@
     </li>
     
     <li class="nav-item">
-    <a href="?page=slots" class="nav-link">
+    <a href="?page=tickets" class="nav-link">
+        <i class="nav-icon fas fa-clipboard-list"></i>
+        <p>
+        Tickets
+        </p>
+    </a>
+    </li>
+    <li class="nav-item">
+    <a href="?page=estacionamentos" class="nav-link">
         <i class="nav-icon fas fa-th"></i>
         <p>
         Espaços
@@ -34,21 +42,17 @@
         </a>
         </li>
         <li class="nav-item">
+        <a href="?page=admin.tickets" class="nav-link">
+            <i class="fas fa-angle-right nav-icon"></i>
+            <p>
+            Historico de Tickets
+            </p>
+        </a>
+        </li>
+        <li class="nav-item">
         <a href="?page=admin.estacionamentos" class="nav-link">
             <i class="fas fa-angle-right nav-icon"></i>
             <p>Estacionamentos</p>
-        </a>
-        </li>
-        <li class="nav-item">
-        <a href="?page=admin.preco" class="nav-link">
-            <i class="fas fa-angle-right nav-icon"></i>
-            <p>Tabela de Preços</p>
-        </a>
-        </li>
-        <li class="nav-item">
-        <a href="?page=admin.promocao" class="nav-link">
-            <i class="fas fa-angle-right nav-icon"></i>
-            <p>Promoções</p>
         </a>
         </li>
         <li class="nav-item">
@@ -61,6 +65,18 @@
         <a href="?page=admin.modelos" class="nav-link">
             <i class="fas fa-angle-right nav-icon"></i>
             <p>Modelos</p>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a href="?page=admin.preco" class="nav-link">
+            <i class="fas fa-angle-right nav-icon"></i>
+            <p>Tabela de Preços</p>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a href="?page=admin.promocao" class="nav-link">
+            <i class="fas fa-angle-right nav-icon"></i>
+            <p>Promoções</p>
         </a>
         </li>
     </ul>

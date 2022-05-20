@@ -7,9 +7,13 @@ if(!isset($_SESSION['usuario'])) {
   $page_include = "";
   $title = "";
   switch(strtolower($page)) {
-    case 'slots':
-      $title = "Espaços no Parque";
-      $page_include = "Visao/components/slots.php";
+    case 'estacionamentos':
+      $title = "Espaços de Estacionamento";
+      $page_include = "Visao/components/estacionamentos.php";
+      break;
+    case 'tickets':
+      $title = "Tickets";
+      $page_include = "Visao/components/tickets.php";
       break;
     // Admin
     case 'admin.usuarios':
@@ -37,7 +41,7 @@ if(!isset($_SESSION['usuario'])) {
       $page_include = "Visao/admin.components/editar_marca.php";
       break;
     case 'admin.modelos':
-      $title = "Gestão de Marcas";
+      $title = "Gestão de Modelos";
       $page_include = "Visao/admin.components/modelo.php";
       break;
     case 'admin.modelo.novo':

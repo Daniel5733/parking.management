@@ -152,13 +152,11 @@ CREATE TABLE IF NOT EXISTS `gest_parque`.`ticket` (
   `data_entrada` DATETIME NOT NULL,
   `data_saida` DATETIME NULL,
   `id_usuario` INT NOT NULL,
-  `id_promocao` INT NULL,
   `montante` DECIMAL(12,2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   INDEX `fk_op_slot_has_car_pk_slot1_idx` (`id_estacionamento` ASC),
   INDEX `fk_op_slot_has_car_cr_car1_idx` (`id_veiculo` ASC),
   INDEX `fk_op_ticket_au_user1_idx` (`id_usuario` ASC),
-  INDEX `fk_op_ticket_pm_promotions1_idx` (`id_promocao` ASC),
   CONSTRAINT `fk_op_slot_has_car_pk_slot1`
     FOREIGN KEY (`id_estacionamento`)
     REFERENCES `gest_parque`.`estacionamento` (`id`)
@@ -173,13 +171,29 @@ CREATE TABLE IF NOT EXISTS `gest_parque`.`ticket` (
     FOREIGN KEY (`id_usuario`)
     REFERENCES `gest_parque`.`usuario` (`id`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`ticket_promocao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`ticket_promocao` (
+  `id_ticket` INT NOT NULL,
+  `id_promocao` INT NOT NULL,
+  PRIMARY KEY (`id_ticket`, `id_promocao`),
+  INDEX `fk_ticket_promocao_promocao1_idx` (`id_promocao` ASC),
+  CONSTRAINT `fk_ticket_promocao_ticket1`
+    FOREIGN KEY (`id_ticket`)
+    REFERENCES `mydb`.`ticket` (`id`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_op_ticket_pm_promotions1`
+  CONSTRAINT `fk_ticket_promocao_promocao1`
     FOREIGN KEY (`id_promocao`)
-    REFERENCES `gest_parque`.`promocao` (`id`)
+    REFERENCES `mydb`.`promocao` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
