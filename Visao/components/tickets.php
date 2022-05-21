@@ -31,12 +31,14 @@ $conexao = conectaDB();
         <!-- /.card-header -->
         <div class="card-body">
             <div class="text-right">
+                <form method="POST" action="./Controlo/ticket.php?metodo=verificar-matricula">
                 <div class="input-group input-group-sm">
-                  <input type="text" class="form-control" placeholder="Pesquisar Matricula">
+                  <input type="text" name="matricula" required class="form-control" placeholder="Verificar Matricula">
                   <span class="input-group-append">
-                    <button type="button" class="btn btn-info btn-flat"><i class="fa fa-plus"> Adicionar</i></button>
+                    <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-plus"> Entrada</i></button>
                   </span>
                 </div>
+                </form>
                 <br/>
                 <br/>
             </div>
@@ -44,6 +46,15 @@ $conexao = conectaDB();
             <?php if(isset($_GET['info']) && $_GET['info']==1) {?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>Sucesso:</strong> Operação completada com sucesso!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php } ?>
+
+                <?php if(isset($_GET['warn']) && $_GET['warn']==1) {?>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Atenção:</strong> O Veiculo já se encontra dentro do Parque!
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

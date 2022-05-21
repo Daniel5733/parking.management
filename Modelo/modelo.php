@@ -5,8 +5,6 @@ include_once('../config/DB.php');
 function gravarModelo($variaveis) {
     $id_marca = "";
     $nome = "";
-    $email = "";
-    $senha = "";
     if(isset($variaveis['id_marca']) && !empty($variaveis['id_marca'])){
         $id_marca = $variaveis['id_marca'];
     } else {

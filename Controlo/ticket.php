@@ -2,8 +2,15 @@
 include_once('../Modelo/ticket.php');
 $metodo = $_GET['metodo'];
 switch(strtolower($metodo)) {
+  case 'verificar-matricula':
+    if(isset($_POST['matricula']) && !empty($_POST['matricula'])) {
+      verificarMatricula($_POST['matricula']);
+    } else {
+      header('location: ../index.php?page=novo_ticket&matricula='.$matricula);
+    }
+  break;
   case 'gravar':
-    gerarTicket($_POST);
+    gravarVeiculo($_POST);
   break;
   case 'finalizar':
     $id = $_GET['id'];

@@ -15,6 +15,10 @@ if(!isset($_SESSION['usuario'])) {
       $title = "Tickets";
       $page_include = "Visao/components/tickets.php";
       break;
+    case 'novo_ticket':
+      $title = "Informe o Veículo";
+      $page_include = "Visao/components/novo_ticket.php";
+      break;
     // Admin
     case 'admin.usuarios':
       $title = "Gestão de Utilizadores";
@@ -112,6 +116,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">  
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/css/adminlte.min.css">
   <!-- REQUIRED SCRIPTS -->
@@ -119,6 +125,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="plugins/select2/js/select2.full.min.js"></script>
    <!-- AdminLTE App -->
   <script src="assets/js/adminlte.min.js"></script>
 </head>
@@ -220,6 +227,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 $(document).ready( function () {
     $('[data-mask]').inputmask();
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
 });
 </script>
 </body>
