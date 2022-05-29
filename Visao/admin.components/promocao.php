@@ -3,7 +3,7 @@ include_once('config/DB.php');
 $conexao = conectaDB();
     $sql = "SELECT 
         m.*,
-        IF(data_fim > NOW(), 1,0) as estado
+        IF(data_inicio <= NOW() AND data_fim >= NOW(), 1, IF(data_inicio > NOW(),2,0)) as estado
     FROM 
         promocao m
     ORDER BY
@@ -35,21 +35,21 @@ $conexao = conectaDB();
 
                 <?php if(isset($_GET['error']) && $_GET['error']==1) {?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Erro:</strong> Operação não realizada!
+                    <strong>Erro:</strong> Ocorreu um erro ao finalizar a operação!
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <?php } ?>
 
-            <table id="users" class="table table-bordered table-hover dataTable dtr-inline">
+            <table id="users" class="table table-bordered table-hover dataTable dtr-inline list-table">
                 <thead>
-                    <tr>
-                        <th>Titulo</th>
-                        <th>Valor</th>
-                        <th class="text-right" width="200px">Data Fim</th>
-                        <th class="text-center" width="200px">Data Fim</th>
-                        <th class="text-center"  width="200px">Acção</th>
+                    <th>Titulo</th>
+                    <th>Valor</th>
+                    <th class="text-right" width="200px">Inicio</th>
+                    <th class="text-center" width="200px">Fim</th>
+                    <th class="text-center"  width="200px">Estado</th>
+                    <th class="text-center"  width="200px">Acção</th>
                 </thead>
                 <tbody>
                     <?php 
@@ -60,7 +60,7 @@ $conexao = conectaDB();
                         <td><?php echo $promocao['valor']; ?></td>
                         <td class="text-right" ><?php echo $promocao['data_inicio']; ?></td>
                         <td class="text-right" ><?php echo $promocao['data_fim']; ?></td>
-                        <td class="text-center"><?php  if($promocao['estado']==1) { ?> <span class="right badge badge-success">Activo</span> <?php } else { ?><span class="right badge badge-danger">Expirado</span><?php } ?></td>
+                        <td class="text-center"><?php  if($promocao['estado']==1) { echo '<span class="right badge badge-success">Activo</span>'; } else if ($promocao['estado']==2){ echo '<span class="right badge badge-warning">Brevemente</span>'; } else {  echo '<span class="right badge badge-danger">Expirado</span>'; } ?></td>
                         <td class="text-center">
                             <a href="./?page=admin.promocao.editar&id=<?php echo $promocao['id']; ?>" class="btn-lg bg-primary"><i class="fa fa-edit"></i></a>
                             <a href="./Controlo/promocao.php?metodo=eliminar&id=<?php echo $promocao['id']; ?>" class="btn-lg bg-danger"><i class="fa fa-trash"></i></a>

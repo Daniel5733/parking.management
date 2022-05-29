@@ -64,7 +64,7 @@
                 <?php } ?>
                 <input type="hidden" name="id_veiculo" value="<?php echo $registo['id']; ?>">
                 <div class="form-group">
-                <label>Veiculo</label>
+                <label>Modelo do veiculo</label>
                 <select required class="form-control select2bs4" name="id_modelo" <?php if((isset($registo['matricula']) && !empty($registo['matricula']))){?> disabled <?php }; ?>>
                     <?php 
                      while($modelo = mysqli_fetch_array($query)) {
@@ -84,6 +84,18 @@
                 <div class="form-group">
                 <label>Cor</label>
                 <input type="text" required class="form-control" name="cor" value="<?php echo $registo['cor'] ?? ''; ?>" placeholder="Introduza a Cor" <?php if((isset($registo['matricula']) && !empty($registo['matricula']))){?> readonly <?php }; ?>>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <button class="btn btn-default" type="button" id="start-camera">Ligar Camera</button>
+                        <button  class="btn btn-success" type="button" id="click-photo">Capturar Foto</button>
+                    </div>
+                    <div class="col-md-12">
+                        <br />
+                        <video id="video" width="320" height="240" autoplay style="display: none;"></video>
+                        <canvas id="canvas" width="320" height="240" style="display: none;"></canvas>
+                        <input type="hidden" name="foto" id="car-image" />
+                    </div>
                 </div>
                 <div class="form-group">
                   <label>Estacionamento</label>
@@ -108,3 +120,40 @@
         </form>
     </div>
 </div>
+<script>
+let camera_button = document.querySelector("#start-camera");
+let video = document.querySelector("#video");
+let click_button = document.querySelector("#click-photo");
+let canvas = document.querySelector("#canvas");
+let camera;
+camera_button.addEventListener('click', async function() {
+    $('#video').show();
+   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+	video.srcObject = stream;
+    camera = stream;
+});
+
+click_button.addEventListener('click', function() {
+   	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+   	let image_data_url = canvas.toDataURL('image/jpeg');
+    $('#car-image').val(image_data_url);
+    $('#video').hide();
+    $('#canvas').show();
+   	// data url of the image
+   	console.log(image_data_url);
+    camera.getTracks().forEach(function(track) {
+        if (track.readyState == 'live' && track.kind === 'video') {
+            track.stop();
+        }
+    });
+
+});
+// stop only camera
+function stopVideoOnly() {
+    stream.getTracks().forEach(function(track) {
+        if (track.readyState == 'live' && track.kind === 'video') {
+            track.stop();
+        }
+    });
+}
+</script>

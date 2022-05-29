@@ -13,8 +13,7 @@ switch(strtolower($metodo)) {
     gravarVeiculo($_POST);
   break;
   case 'finalizar':
-    $id = $_GET['id'];
-    finalizarTicket($id);
+    finalizarTicket($_POST);
   break;
   default:
     // Error Page

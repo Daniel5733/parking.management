@@ -78,7 +78,7 @@ function editarPromocao($id, $variaveis) {
         $campos_vazios = true;
     }
     
-    if(isset($variaveis['data_fim']) && intval($variaveis['data_fim'])>=0){
+    if(isset($variaveis['data_fim']) && !empty($variaveis['data_fim'])){
         $data_fim = $variaveis['data_fim'];
     } else {
         $campos_vazios = true;

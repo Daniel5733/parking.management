@@ -1,12 +1,13 @@
 <?php 
 include_once('config/DB.php');
+atualizarPecoTickets();
 $conexao = conectaDB();
     $sql = "SELECT 
         e.codigo,
-        t.montante,
-        CONCAT(m.nome , ' | ',v.matricula) as veiculo,
+        IF(t.data_entrada IS NOT NULL AND t.data_saida IS NULL, t.montante,0) as montante,
+        IF(t.data_entrada IS NOT NULL AND t.data_saida IS NULL, CONCAT(m.nome , ' | ',v.matricula), 'Livre') as veiculo,
         e.estado,
-        IF(v.matricula IS NOT NULL, 1,0) as oucupado
+        IF(t.data_entrada IS NOT NULL AND t.data_saida IS NULL, 1,0) as oucupado
     FROM 
         `estacionamento` e
         LEFT JOIN ticket t ON (t.id_estacionamento = e.id)
@@ -25,7 +26,7 @@ $conexao = conectaDB();
     while($estacionamento = mysqli_fetch_array($query)) {
 ?>
 <div class="col-md-2 col-sm-6 col-12">
-    <div class="info-box <?php if($estacionamento['estado']== 1) { if($estacionamento['oucupado'] == 1) { echo 'bg-gradient-info'; } else { echo 'bg-gradient-success'; } } else { echo 'bg-gradient-danger'; } ?>">
+    <div class="info-box <?php if($estacionamento['estado']== 1) { if($estacionamento['oucupado'] == 1) { echo 'bg-gradient-warning'; } else { echo 'bg-gradient-success'; } } else { echo 'bg-gradient-danger'; } ?>">
         <div class="info-box-content">
         <span class="info-box-text"><?php echo ($estacionamento['montante'] ?? '0.00'); ?></span>
         <span class="info-box-number"><?php echo $estacionamento['codigo']; ?></span>

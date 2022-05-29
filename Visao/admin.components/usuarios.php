@@ -39,20 +39,19 @@ $conexao = conectaDB();
 
                 <?php if(isset($_GET['error']) && $_GET['error']==1) {?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Erro:</strong> Operação não realizada!
+                    <strong>Erro:</strong> Ocorreu um erro ao finalizar a operação!
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <?php } ?>
 
-            <table id="users" class="table table-bordered table-hover dataTable dtr-inline">
+            <table id="users" class="table table-bordered table-hover dataTable dtr-inline list-table">
                 <thead>
-                    <tr>
-                        <th>Perfil</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th class="text-center"  width="200px">Acção</th>
+                    <th>Perfil</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th class="text-center"  width="200px">Acção</th>
                 </thead>
                 <tbody>
                     <?php 

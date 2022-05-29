@@ -9,7 +9,6 @@
         </p>
     </a>
     </li>
-    
     <li class="nav-item">
     <a href="?page=tickets" class="nav-link">
         <i class="nav-icon fas fa-clipboard-list"></i>
@@ -53,6 +52,14 @@
         <a href="?page=admin.estacionamentos" class="nav-link">
             <i class="fas fa-angle-right nav-icon"></i>
             <p>Estacionamentos</p>
+        </a>
+        </li>
+        <li class="nav-item">
+        <a href="?page=admin.veiculos" class="nav-link">
+            <i class="fas fa-angle-right nav-icon"></i>
+            <p>
+            Veículos
+            </p>
         </a>
         </li>
         <li class="nav-item">

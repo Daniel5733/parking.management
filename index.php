@@ -19,7 +19,19 @@ if(!isset($_SESSION['usuario'])) {
       $title = "Informe o Veículo";
       $page_include = "Visao/components/novo_ticket.php";
       break;
+    case 'finalizar_ticket':
+      $title = "Ticket";
+      $page_include = "Visao/components/finalizar_ticket.php";
+      break;
     // Admin
+    case 'admin.tickets':
+      $title = "Histórico de Tickets";
+      $page_include = "Visao/admin.components/tickets.php";
+      break;
+    case 'admin.veiculos':
+      $title = "Veículos";
+      $page_include = "Visao/admin.components/veiculos.php";
+      break;
     case 'admin.usuarios':
       $title = "Gestão de Utilizadores";
       $page_include = "Visao/admin.components/usuarios.php";
@@ -120,16 +132,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/css/adminlte.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- REQUIRED SCRIPTS -->
   <!-- jQuery -->
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="plugins/select2/js/select2.full.min.js"></script>
+  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <!-- DevExtrem JS -->
+  <link rel="stylesheet" href="plugins/devextreme_v21_2_6/dx.light.css">
+  <script type="text/javascript" src="plugins/devextreme_v21_2_6/dx.all.js"></script>
    <!-- AdminLTE App -->
   <script src="assets/js/adminlte.min.js"></script>
+  <style>
+    .chart-demo > div {
+      height: 250px;
+    }
+  </style>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini dx-viewport">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -187,7 +215,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">App</a></li>
+              <li class="breadcrumb-item"><a href="./">App</a></li>
               <li class="breadcrumb-item active"><?php echo $title; ?></li>
             </ol>
           </div><!-- /.col -->
@@ -230,7 +258,15 @@ $(document).ready( function () {
     $('.select2bs4').select2({
       theme: 'bootstrap4'
     })
-
+    $('.list-table').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
 });
 </script>
 </body>

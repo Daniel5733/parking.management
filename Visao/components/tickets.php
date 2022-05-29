@@ -1,5 +1,6 @@
 <?php 
 include_once('config/DB.php');
+atualizarPecoTickets();
 $conexao = conectaDB();
     $sql = "SELECT 
         t.id as id_ticket,
@@ -31,7 +32,7 @@ $conexao = conectaDB();
         <!-- /.card-header -->
         <div class="card-body">
             <div class="text-right">
-                <form method="POST" action="./Controlo/ticket.php?metodo=verificar-matricula">
+                <form method="POST" target="_blank" action="./Controlo/ticket.php?metodo=verificar-matricula">
                 <div class="input-group input-group-sm">
                   <input type="text" name="matricula" required class="form-control" placeholder="Verificar Matricula">
                   <span class="input-group-append">
@@ -63,21 +64,20 @@ $conexao = conectaDB();
 
                 <?php if(isset($_GET['error']) && $_GET['error']==1) {?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Erro:</strong> Operação não realizada!
+                    <strong>Erro:</strong> Ocorreu um erro ao finalizar a operação!
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <?php } ?>
 
-            <table id="users" class="table table-bordered table-hover dataTable dtr-inline">
+            <table id="users" class="table table-bordered table-hover dataTable dtr-inline list-table">
                 <thead>
-                    <tr>
-                        <th>Espaço</th>
-                        <th>Montante</th>
-                        <th>Veiculo</th>
-                        <th class="text-right" width="200px">Data Entrada</th>
-                        <th class="text-center" width="100px">Acção</th>
+                    <th>Espaço</th>
+                    <th>Montante</th>
+                    <th>Veiculo</th>
+                    <th class="text-right" width="200px">Data Entrada</th>
+                    <th class="text-center" width="100px">Acção</th>
                 </thead>
                 <tbody>
                     <?php 
@@ -89,7 +89,7 @@ $conexao = conectaDB();
                         <td><?php echo $ticket['veiculo']; ?></td>
                         <td><?php echo $ticket['data_entrada']; ?></td>
                         <td class="text-center">
-                            <a href="./?page=ticket.finalizar&id=<?php echo $ticket['id_ticket']; ?>" class="btn-lg bg-danger"><i class="fa fa-check"></i></a>
+                            <a target="_blank" href="./?page=finalizar_ticket&id=<?php echo $ticket['id_ticket']; ?>" class="btn-lg bg-danger"><i class="fa fa-check"></i></a>
                         </td>
                     </tr>
                     <?php
