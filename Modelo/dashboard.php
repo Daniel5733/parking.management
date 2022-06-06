@@ -127,7 +127,7 @@ function vendasUltimo7Dias() {
   FROM 
     `pagamento` 
   WHERE 
-    `data` BETWEEN NOW() - INTERVAL 7 DAY AND NOW()
+    `data` BETWEEN NOW() - INTERVAL 6 DAY AND NOW()
   GROUP BY
     dia
   ";
@@ -138,7 +138,7 @@ function vendasUltimo7Dias() {
       $date = new DateTime($registo['dia']);
       $day_name = $date->format('D');
       $grafico[] = array(
-        'dia' => dayName($day_name),
+        'dia' => dayName($day_name).'/'.$date->format('d'),
         'valor' => floatval($registo['montante'])
       );
     }

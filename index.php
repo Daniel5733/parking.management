@@ -23,7 +23,6 @@ if(!isset($_SESSION['usuario'])) {
       $title = "Ticket";
       $page_include = "Visao/components/finalizar_ticket.php";
       break;
-    // Admin
     case 'admin.tickets':
       $title = "Histórico de Tickets";
       $page_include = "Visao/admin.components/tickets.php";
@@ -112,10 +111,6 @@ if(!isset($_SESSION['usuario'])) {
 }
 ?>
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 <head>
   <meta charset="utf-8">

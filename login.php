@@ -23,7 +23,6 @@ if(isset($_SESSION['usuario'])) {
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="index.php" class="h1">Garagem <b>MED</b></a>
@@ -68,11 +67,8 @@ if(isset($_SESSION['usuario'])) {
         </div>
       </form>
     </div>
-    <!-- /.card-body -->
   </div>
-  <!-- /.card -->
 </div>
-<!-- /.login-box -->
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
