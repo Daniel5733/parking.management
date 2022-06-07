@@ -250,8 +250,8 @@ function  listPromosFuturas($conexao) {
   function generateTicketPdf($matricula, $id_ticket, $data_e) {
     //Gerar QrCode
     $qc = new QRCODE();
-    //$localIP = "192.168.238.59";
-    $localIP = getHostByName(getHostName()) ;
+    $localIP = "192.168.4.59";
+    //$localIP = getHostByName(getHostName()) ;
     $qc->URL('http://'.$localIP.':8888/isaf/parking.management/cliente.php?id='.$id_ticket);
     $qrFicheiro = "../qrCodes/ticket".$id_ticket.".png";
     $qc->QRCODE(100, $qrFicheiro);
